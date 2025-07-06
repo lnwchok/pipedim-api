@@ -1,5 +1,5 @@
 const express = require('express');
-// const cors = require('cors');
+const cors = require('cors');
 
 const compRoutes = require('./routes/components');
 
@@ -8,7 +8,7 @@ const port = 3001;
 
 // Middleware for parsing JSON
 app.use(express.json());
-// app.use(cors);
+app.use(cors({ origin: `http://127.0.0.1:${port}}` }));
 app.use('/api/components', compRoutes);
 
 app.listen(port, () => {
