@@ -1,7 +1,7 @@
 const db = require('../models/db');
 
 const getComps = async (req, res) => {
-    db.all('SELECT * FROM component', (err, rows) => {
+    db.all('SELECT * FROM pipes', (err, rows) => {
     if (err) {
       console.error(err.message);
       res.status(500).json({ message: 'Error retrieving components', error: error.message });
@@ -12,8 +12,8 @@ const getComps = async (req, res) => {
 };
 
 const getCompbyNPS = (req, res) => {
- const { id } = req.params;
-  db.get('SELECT * FROM component WHERE id = ?', [id], (err, row) => {
+ const { nps } = req.params;
+  db.get('SELECT * FROM pipes WHERE nps = ?', [nps], (err, row) => {
     if (err) {
       console.error(err.message);
       res.status(500).json({ message: 'Error retrieving components', error: error.message });

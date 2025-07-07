@@ -8,7 +8,7 @@ router.get('/', getComps);
 
 
 // GET - Retrieve a specific user
-router.get('/:id', getCompbyNPS);
+router.get('/:nps', getCompbyNPS);
 
 
 // let users = [
